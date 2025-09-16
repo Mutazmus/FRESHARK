@@ -11,7 +11,7 @@ namespace api.Controller.Interfaces
         Task<List<Comment>> GetAllCommentsAsync();
         Task<Comment?> GetCommentByIdAsync(int id);
         Task<Comment> CraeteCommentAsync(Comment comment);
-        Task<Comment?> UpdateCommentAsync(int id, Comment comment);
+        Task<Comment?> UpdateCommentAsync(int id, Comment commentModel);
         Task<Comment?> DeleteCommentAsync(int id);
         Task<Comment> CreateAsync(Comment commentModel);
     }

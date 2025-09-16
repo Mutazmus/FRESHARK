@@ -216,3 +216,4 @@
 /Users/mac/dotnet/FINSHARK/api/bin/Debug/net9.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 /Users/mac/dotnet/FINSHARK/api/bin/Debug/net9.0/Newtonsoft.Json.dll
 /Users/mac/dotnet/FINSHARK/api/bin/Debug/net9.0/Newtonsoft.Json.Bson.dll
+/Users/mac/dotnet/FINSHARK/api/obj/Debug/net9.0/api.sourcelink.json

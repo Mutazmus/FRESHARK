@@ -13,27 +13,31 @@ namespace api.Controller.Repository
     {
 
         private readonly ApplicationDBContext _context;
-         public CommentRepository(ApplicationDBContext context)
+        public CommentRepository(ApplicationDBContext context)
         {
             _context = context;
-
         }
         public  Task<Comment> CraeteCommentAsync(Comment comment)
         {
-              throw new NotImplementedException();
+            throw new NotImplementedException();
         }
-
-        public async Task<Comment> CreateAsync(Comment commentModel)
+        public async Task<Comment> CreateAsync(Comment commentModel)  
         {
-           
             await _context.AddAsync(commentModel);
             await _context.SaveChangesAsync();
             return commentModel;
         }
 
-        public Task<Comment?> DeleteCommentAsync(int id)
+        public async Task<Comment?> DeleteCommentAsync(int id)
         {
-            throw new NotImplementedException();
+            var commentModel = await _context.Comments.FirstOrDefaultAsync(x => x.Id == id);
+            if (commentModel == null)
+            {
+                return null;
+            }
+            _context.Comments.Remove(commentModel);
+            await _context.SaveChangesAsync();
+            return commentModel;
         }
 
         public async Task<List<Comment>> GetAllCommentsAsync()
@@ -43,13 +47,21 @@ namespace api.Controller.Repository
 
         public async Task<Comment?> GetCommentByIdAsync(int id)
         {
-            
-          return await _context.Comments.FindAsync(id);
+            return await _context.Comments.FindAsync(id);
         }
 
-        public Task<Comment?> UpdateCommentAsync(int id, Comment comment)
+        public async Task<Comment?> UpdateCommentAsync(int id, Comment commentModel)
         {
-            throw new NotImplementedException();
+            var existingComment = await _context.Comments.FindAsync(id);
+            if (existingComment == null)
+            {
+                return null;
+            }
+            existingComment.Title = commentModel.Title;
+            existingComment.Content = commentModel.Content;
+
+            await _context.SaveChangesAsync();
+            return existingComment;
         }
     }
     }

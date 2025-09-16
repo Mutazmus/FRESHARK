@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using api.Controller.Hellpers;
 using api.Controller.Interfaces;
 using api.Data;
 using api.Models;
@@ -40,9 +41,20 @@ namespace api.Controller.Repository
             return stockModel;
         }
 
-        public async Task<List<Stock>> GetAllAsync()
+        public async Task<List<Stock>> GetAllAsync(QueryObject query)
         {
-            return await _context.Stocks.Include(x=>x.Comments).ToListAsync();
+            var stocks = _context.Stocks.Include(x => x.Comments).AsQueryable();
+            
+            if (!string.IsNullOrWhiteSpace(query.CompanyName))
+            {
+                stocks = _context.Stocks.Where(s => s.CompanyName.Contains(query.CompanyName));
+            }
+            if (!string.IsNullOrWhiteSpace(query.Symbol))
+            {
+                stocks = _context.Stocks.Where(s => s.Symbol.Contains(query.Symbol));
+            }
+
+            return await stocks.ToListAsync();
 
         }
 

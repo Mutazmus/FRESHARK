@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace api.Models.Dtos.CommetsDto
 {
-    public class CreateCommetDto
+    public class UpdateCommentDto
     {
-
         [Required]
-        [MinLength(5,ErrorMessage = "Title Must Be 5 Characters")]
-        [MaxLength(280,ErrorMessage = "Title Cannot Be Over 280 Characters")]
+        [MinLength(5, ErrorMessage = "Title Must Be 5 Characters")]
+        [MaxLength(280, ErrorMessage = "Title Cannot Be Over 280 Characters")]  
         public string Title { get; set; } = string.Empty;
+
         [Required]
         [MinLength(5,ErrorMessage = "Content Must Be 5 Characters")]
         [MaxLength(280,ErrorMessage = "Content Be Over 280 Characters")]
