@@ -44,7 +44,8 @@ namespace api.Controller.Repository
         public async Task<List<Stock>> GetAllAsync(QueryObject query)
         {
             var stocks = _context.Stocks.Include(x => x.Comments).AsQueryable();
-            
+
+            // Filter OR Search
             if (!string.IsNullOrWhiteSpace(query.CompanyName))
             {
                 stocks = _context.Stocks.Where(s => s.CompanyName.Contains(query.CompanyName));
@@ -54,7 +55,19 @@ namespace api.Controller.Repository
                 stocks = _context.Stocks.Where(s => s.Symbol.Contains(query.Symbol));
             }
 
-            return await stocks.ToListAsync();
+            // SortBy
+            if (!string.IsNullOrWhiteSpace(query.SortBy))
+            {
+                if (query.SortBy.Equals("Symbol", StringComparison.OrdinalIgnoreCase))
+                {
+                    stocks = query.IsDecsending ? stocks.OrderByDescending(s => s.Symbol) : stocks.OrderBy(s => s.Symbol);
+                }
+            }
+
+            // Pagination
+            var skipNumber = (query.PageNumber - 1) * query.PageSize;
+
+            return await stocks.Skip(skipNumber).Take(query.PageSize).ToListAsync();
 
         }
 
