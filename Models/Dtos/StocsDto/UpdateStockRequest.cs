@@ -23,7 +23,7 @@ namespace api.Models.Dtos.StocsDto
         [Required]
         [Range(0.001, 100)]
         public decimal LastDiv { get; set; }
-        
+
         [Required]
         [MaxLength(10, ErrorMessage = "Industry Cannot Be Over 10 Characters")]
         public string Industry { get; set; } = string.Empty;

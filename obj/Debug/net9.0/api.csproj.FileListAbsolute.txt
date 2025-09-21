@@ -217,3 +217,12 @@
 /Users/mac/dotnet/FINSHARK/api/bin/Debug/net9.0/Newtonsoft.Json.dll
 /Users/mac/dotnet/FINSHARK/api/bin/Debug/net9.0/Newtonsoft.Json.Bson.dll
 /Users/mac/dotnet/FINSHARK/api/obj/Debug/net9.0/api.sourcelink.json
+/Users/mac/dotnet/FINSHARK/api/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/mac/dotnet/FINSHARK/api/bin/Debug/net9.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/mac/dotnet/FINSHARK/api/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/mac/dotnet/FINSHARK/api/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/mac/dotnet/FINSHARK/api/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+/Users/mac/dotnet/FINSHARK/api/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.dll
+/Users/mac/dotnet/FINSHARK/api/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/mac/dotnet/FINSHARK/api/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
+/Users/mac/dotnet/FINSHARK/api/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll

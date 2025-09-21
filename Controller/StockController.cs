@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using api.Controller.Repository;
 using api.Controller.Interfaces;
 using api.Controller.Hellpers;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace api.Controller
@@ -29,13 +30,14 @@ namespace api.Controller
 
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAll([FromQuery] QueryObject query)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var stocks = await _stockRepository.GetAllAsync(query);
-            
+
             var stackModel = stocks.Select(s => s.ToStackDto());
             return Ok(stocks);
         }

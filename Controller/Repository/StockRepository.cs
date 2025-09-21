@@ -45,7 +45,7 @@ namespace api.Controller.Repository
         {
             var stocks = _context.Stocks.Include(x => x.Comments).AsQueryable();
 
-            // Filter OR Search
+            // Filter OR Search ---------(Include here also use for filter)
             if (!string.IsNullOrWhiteSpace(query.CompanyName))
             {
                 stocks = _context.Stocks.Where(s => s.CompanyName.Contains(query.CompanyName));
