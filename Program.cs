@@ -89,6 +89,8 @@ builder.Services.AddScoped<ICommentRepository, CommentRepository>();
 
 builder.Services.AddScoped<ITokenService, TokenService>();
 
+builder.Services.AddScoped<IPortfolioRepository, PortfolioRepository>();
+
 builder.Services.AddControllers().AddNewtonsoftJson(Options => { Options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;});
 
 var app = builder.Build();

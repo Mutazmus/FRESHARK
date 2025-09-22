@@ -38,7 +38,7 @@ namespace api.Controller
                     return BadRequest(ModelState);
                 }
 
-                // // ✅ تحقق من البريد الإلكتروني قبل الإنشاء
+                //  تحقق من البريد الإلكتروني قبل الإنشاء
 
                 // var existingUser = await _userManeger.Users.FindByEmailAsync(registerDto.Email);
                 // if (existingUser != null)
@@ -100,11 +100,9 @@ namespace api.Controller
 
             if (!result.Succeeded)
             {
-
                 return Unauthorized("UserName Not Found and/or password Incorrect");
-
             }
-
+            
             return Ok(
                 new NewUserDto
                 {
