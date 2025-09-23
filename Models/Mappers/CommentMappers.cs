@@ -16,6 +16,7 @@ namespace api.Models.Mappers
                 Title = commentModel.Title,
                 Content = commentModel.Content,
                 CreatedOn = commentModel.CreatedOn,
+                CreatedBy = commentModel.AppUser?.UserName ?? "Anonymous",
                 StockId = commentModel.StockId,
 
             };

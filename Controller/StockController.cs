@@ -38,8 +38,8 @@ namespace api.Controller
 
             var stocks = await _stockRepository.GetAllAsync(query);
 
-            var stackModel = stocks.Select(s => s.ToStackDto());
-            return Ok(stocks);
+            var stackDto = stocks.Select(s => s.ToStackDto()).ToList();
+            return Ok(stackDto);
         }
 
 

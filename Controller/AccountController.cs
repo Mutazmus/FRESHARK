@@ -90,6 +90,7 @@ namespace api.Controller
             {
                 return BadRequest(ModelState);
             }
+
             var user = await _userManeger.Users.FirstOrDefaultAsync(x => x.UserName == loginDto.UserName.ToLower());
             if (user == null)
             {
